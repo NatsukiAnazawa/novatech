@@ -1,0 +1,159 @@
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+.header {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  @include s.mq("sp") {
+    height: 72px;
+    background-color: s.$colorWhite;
+  }
+}
+.header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: percentage(math.div(1220, 1280));
+  height: 100%;
+  margin: 0 auto;
+
+  @include s.mq("sp") {
+    width: percentage(math.div(360, 420));
+  }
+}
+.header_logo {
+  width: 130px;
+  height: auto;
+
+  @include s.mq("sp") {
+    width: 68px;
+  }
+}
+.header_nav {
+  @include s.mq("sp") {
+    display: none;
+  }
+}
+.header_items {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+.header_itemLink {
+  font-weight: 700;
+  color: s.$colorBlack;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+.header_itemLink:hover {
+  opacity: 0.6;
+}
+
+// SP：ハンバーガーメニュー
+.header_hamberger {
+  display: none;
+
+  @include s.mq("sp") {
+    display: block;
+    width: 42px;
+    height: 24px;
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+  }
+}
+.header_hamberger span{
+  display: block;
+  position: absolute;
+  width: 42px;
+  height: 3px;
+  background-color: s.$colorBlue;
+  border-radius: 3px;
+  transition: all .5s;
+
+  &:nth-child(1) {
+    top: -3px;
+  }
+  &:nth-child(2) {
+    top: 9px;
+  }
+  &:nth-child(3) {
+    top: 21px;
+  }
+}
+// SP：ハンバーガーメニュー > OPEN（×印）
+.js_active {
+  &.header_hamberger span {
+    &:nth-child(1) {
+      transform: translateY(12px) rotate(-45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: translateY(-12px) rotate(45deg);
+    }
+  }
+}
+
+// SP：ヘッダーメニュー
+.header_mask {
+  display: block;
+  position: fixed;
+  opacity: 1;
+  background: url(../image/overlay.png) no-repeat center top / cover transparent;
+  width: 100%;
+  height: 100vh;
+  top: 72px;
+  right: -100%;
+  cursor: pointer;
+  transition: all .5s;
+}
+.header_maskNav {
+  margin-top: 80px;
+  margin-left: 48px;
+}
+.header_maskItems {
+  margin-top: 80px;
+  color: s.$colorBlue;
+  font-weight: 700;
+}
+.header_maskLink {
+  display: block;
+  margin-bottom: 42px;
+
+  &:last-of-type {
+    margin-bottom: 48px;
+  }
+}
+.header_maskItem_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header_maskLink-sns:first-of-type {
+  width: 33px;
+  height: 30px;
+}
+.header_maskLink-sns:last-of-type {
+  width: 33.25px;
+  height: 33.25px;
+}
+
+// SP：ヘッダーメニュー > OPEN
+.js_active {
+  &.header_mask {
+    right: 0%;
+    z-index: 10;
+  }
+}

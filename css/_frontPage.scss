@@ -1,0 +1,880 @@
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+/* ここから記述します。 */
+/*-------------------------------------------
+スライドレイアウト
+-------------------------------------------*/
+.slide {
+  position: relative;
+  width: 100vw;
+  height: 720px;
+}
+@media screen and (min-width: 1390px) {
+  .slide {
+      height: 900px;
+  }
+}
+
+/*スライド横のイラスト配置*/
+.slide::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: -46%;
+  left: 0;
+  background: transparent url(../image/bubble.png) no-repeat center / cover;
+  width: 352px;
+  height: 559px;
+
+  @include s.mq("sp") {
+      width: 198px;
+      height: 320px;
+      bottom: -217px;
+      background: transparent url(../image/bubble-sp.png) no-repeat center /
+          cover;
+  }
+}
+.slide_items {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+
+  @include s.mq("sp") {
+    height: 100vh;
+    top: s.$headerHeight--sp;
+  }
+}
+.slide_item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  animation: slider 15s infinite;
+
+  @include s.mq("sp") {
+      height: 100vh;
+  }
+}
+.slide_item:nth-child(1) {
+  animation-delay: 0s;
+}
+.slide_item:nth-child(2) {
+  animation-delay: 5s;
+}
+.slide_item:nth-child(3) {
+  animation-delay: 10s;
+}
+.slide_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/*スライドのアニメーション*/
+@keyframes slider {
+  0% {
+      opacity: 0;
+  }
+  25% {
+      opacity: 1;
+  }
+  75% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+// スライドタイトル
+.slide_titleWrap {
+  display: inline-block;
+  position: absolute;
+  top: 348px;
+  left: 100px;
+
+  @include s.mq("sp") {
+    top: inherit;
+    bottom: 86px;
+    left: 21px;
+}
+}
+.slide_title {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: bold;
+  color: s.$colorBlue;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+
+  @include s.mq("sp") {
+    font-size: 32px;
+    letter-spacing: 0.14em;
+    line-height: 1.65;
+}
+
+  &:first-of-type {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      width: 26px;
+      height: 27px;
+      background: url(../image/title-image.png) no-repeat center /cover;
+    }
+  }
+}
+
+/*-------------------------------------------
+「信頼の技術とサポート」レイアウト
+-------------------------------------------*/
+.support_inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 110px auto 220px;
+  @include s.innerWidth;
+  max-width: 1080px;
+  height: 670px;
+
+  @include s.mq("sp") {
+    margin: 54px auto 116px;
+    flex-direction: column;
+    width: percentage(math.div(390, 420));
+    height: auto;
+}
+}
+.support_leftInner {
+  width: 46%;
+  position: relative;
+  z-index: 2;
+
+  @include s.mq("sp") {
+    width: 100%;
+}
+}
+.support_leftTopImg {
+  max-width: 500px;
+  margin: 0 auto;
+
+  @include s.mq("sp") {
+    width: 100%;
+    aspect-ratio: math.div(390, 260);
+}
+}
+.support_leftTopImg img {
+  border-radius: 10px;
+
+  @include s.mq("sp") {
+    width: 100%;
+    border-radius: 6px;
+}
+}
+.support_leftImgInner {
+  display: flex;
+  position: relative;
+
+  @include s.mq("sp") {
+    height: 301px;
+}
+}
+.support_leftBottomImg01 {
+  width: 225px;
+  height: auto;
+  position: absolute;
+  top: 96px;
+  left: -74px;
+
+  @include s.mq("sp") {
+    width: 180px;
+    top: 44px;
+    left: 0;
+}
+}
+.support_leftBottomImg02 {
+  width: 330px;
+  height: auto;
+  position: absolute;
+  top: 52px;
+  right: 0;
+
+  @include s.mq("sp") {
+    width: 200px;
+    top: 13px;
+    right: 0;
+}
+}
+.support_rightInner {
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include s.mq("sp") {
+    width: 100%;
+    margin-top: -10px;
+  }
+}
+.support_textWrpper {
+  @include s.mq("sp") {
+    margin-left: 8px;
+  }
+}
+.support_title {
+  font-size: 36px;
+  font-weight: bold;
+  color: s.$colorBlue;
+  margin-bottom: 26px;
+}
+
+.support_text {
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.rightImgInner{
+  max-width: 500px;
+    margin: 0 auto;
+
+    @include s.mq("sp") {
+        width: 100%;
+        aspect-ratio: math.div(390, 260);
+    }
+}
+
+.rightImgInner img{
+   border-radius: 10px;
+
+    @include s.mq("sp") {
+        width: 100%;
+        border-radius: 6px;
+    }
+}
+
+/*-------------------------------------------
+「SERVICE」レイアウト
+-------------------------------------------*/
+.service {
+  position: relative;
+	background-color: #F6F8FA; 
+  padding-top: 64px;
+
+  @include s.mq("sp") {
+    padding: 80px 0 61px;
+}
+}
+
+.service_layout {
+  width: 85%;
+	max-width: 1080px;
+	margin: 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -110px;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    background: url(../image/service-bg01.png) no-repeat top center / cover;
+  
+    @include s.mq("sp") {
+      height: 36px;
+      top: -36px;
+  }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -110px;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    background: url(../image/service-bg02.png) no-repeat top center / cover;
+  
+    @include s.mq("sp") {
+      bottom: -36px;
+  }
+  }
+}
+
+.service_inner {
+  display: flex;
+  gap: 75px;
+  margin-top: 48px;
+  padding-bottom: 68px;
+
+  @include s.mq("sp") {
+    flex-direction: column;
+    gap: 48px; 
+}  
+}
+
+.service_conteiner {
+  position: relative;
+  height: 614px;
+  flex: 1;
+
+  @include s.mq("sp") {
+    height: auto;
+    margin-bottom: 47px;
+}
+
+  &:nth-of-type(2) {
+    margin-top: 47px;
+
+    @include s.mq("sp") {
+     margin-top: 0;
+    }
+  }
+}
+.service_conteiner:last-of-type {
+  @include s.mq("sp") {
+    margin-bottom: 0;
+  }
+}
+.service_img {
+  max-width: 354px;
+  
+  @include s.mq("sp") {
+    margin: 0 auto;
+  }
+}
+
+.service_img img {
+  box-shadow: 5px 5px 10px rgb(#4e4e4e, 0.3);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.service_title {
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  line-height: 36px;
+  color: s.$colorBlue;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.service_text {
+  margin-bottom: 20px;
+
+  @include s.mq("sp") {
+    text-align: center;
+  }
+}
+
+.service_btn {
+  width: 258px;
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include s.mq("sp") {
+    width: 274px;
+    position: inherit;
+    left: inherit;
+    transform: translateX(0);
+    bottom: 0;
+    margin: 20px auto 0;
+  }
+}
+
+/*-------------------------------------------
+「ABOUT」レイアウト
+-------------------------------------------*/
+.about_layout {
+  position: relative;
+  margin: 110px auto;
+  padding-top: 110px;
+
+  @include s.mq("sp") {
+    margin: 36px auto 60px;
+    padding-top: 80px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -100px;
+    left: percentage(math.div(53, 1280));
+    background: transparent url(../image/about-img.png) no-repeat center / cover;
+    width: 237px;
+    height: 185px;
+
+    @include s.mq("sp") {
+      width: 135px;
+      height: 105px;
+      left: 12px;
+      top: -80px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -180px;
+    right: 0;
+    background: transparent url(../image/about-bubble.png) no-repeat center / cover;
+    width: 253px;
+    height: 475px;
+
+    @include s.mq("sp") {
+      width: 110px;
+      height: 185px;
+      top: -75px;
+    }
+  }
+}
+.about_inner {
+  @include s.innerWidth;
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+.aboutTitle {
+  margin: 0 0 25px 600px;
+
+  @include s.mq("sp") {
+    margin: 0 auto;
+  }
+}
+.about_conteiner {
+  display: flex;
+
+  @include s.mq("sp") {
+    flex-direction: column;
+  }
+}
+.about_img {
+  width: percentage(math.div(640, 1080));
+  height: 433px;
+  z-index: -1;
+
+  @include s.mq("sp") {
+    width: 100%;
+    height: 254px;
+    margin-bottom: 20px;
+  }
+}
+.about_img img {
+  border-radius: 10px;
+}
+.about_content {
+  width: percentage(math.div(412, 1080));
+  margin-left: -40px;
+
+  @include s.mq("sp") {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.about_subTitle {
+  color: s.$colorBlue;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.about_text {
+  margin-bottom: 64px;
+
+  @include s.mq("sp") {
+    margin-bottom: 30px;
+  }
+}
+.about_btn {
+  width: 258px;
+}
+
+/*-------------------------------------------
+「会社理念・会社概要」レイアウト
+-------------------------------------------*/
+.company_inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include s.mq("sp") {
+    grid-template-columns: 1fr;
+}
+}
+.company_item {
+  padding: 51px 0 52px 100px;
+  transition: filter 0.3s;
+}
+.company_item:first-of-type{
+  background: transparent url(../image/philosophy.png) no-repeat top center / cover;
+}
+.company_item:last-of-type {
+  background: transparent url(../image/company.png) no-repeat top center / cover;
+}
+.company_item:hover, 
+.company_item:focus {
+  cursor: pointer;
+  filter: grayscale(60%);
+}
+.companyTitle_jp {
+  color: s.$colorWhite;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+
+  @include s.mq("sp") {
+    font-size: 24px;
+  }
+}
+.companyTitle_en {
+  color: s.$colorWhite;
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 1.9;
+
+  @include s.mq("sp") {
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+  }
+}
+.companyBtn {
+  margin-top: 32px;
+  width: 24px;
+  height: 24px;
+
+  @include s.mq("sp") {
+    width: 20px;
+    height: 20px;
+    margin-top: 9px;
+  }
+}
+.companyBtn img {
+  transition-duration: 0.3s;
+}
+
+.company_item:hover .companyBtn img {
+    transform: translateX(50px);
+}
+
+/*-------------------------------------------
+「STAFF」レイアウト
+-------------------------------------------*/
+.staff_layout {
+  padding: 121px 0 121px;
+  background: url(../image/staff-bg.png) no-repeat top center / cover;
+  position: relative;
+
+  @include s.mq("sp") {
+    padding: 80px 15px;
+    background: transparent url(../image/staff-bg-sp.png) no-repeat top center / cover;
+}
+}
+
+.staff_layout::after {
+  content: "";
+  background: url(../image/staff-bubble.png) no-repeat center / cover;
+  width: 216px;
+  height: 432px;
+  position: absolute;
+  top: 81px;
+  left: 0;
+  z-index: 2;
+
+  @include s.mq("sp") {
+    width: 100px;
+    height: 142px;
+    background: transparent url(../image/staff-bubble-sp.png) no-repeat center / cover;
+    top: inherit;
+    left: inherit;
+    bottom: -5px;
+    right: 0;
+    z-index: 2;
+  }
+}
+
+.staff_inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: percentage(math.div(60, 1280));
+
+  @include s.mq("sp") {
+    flex-direction: column-reverse;
+  }
+
+}
+
+.staff_rightItem {
+  width: percentage(math.div(410, 1280));
+  position: relative;
+
+  @include s.mq("sp") {
+    width: 100%;
+    margin-top: 110px;
+}
+
+  &::after {
+    content: "";
+    background: url(../image/staff-art.png) no-repeat center / cover;
+    width: 347px;
+    height: 155px;
+    position: absolute;
+    left: 0;
+    bottom: -90px;
+
+    @include s.mq("sp") {
+      left: inherit;
+      bottom: inherit;
+      width: 186px;
+      height: 83px;
+      top: -72px;
+      right: 0;
+    }
+  }
+}
+
+.staffText {
+  margin: 35px 0 35px;
+}
+
+.staff_btn {
+  width: 276px;
+}
+
+.staff_leftItem {
+  width: percentage(math.div(588, 1280));
+  height: percentage(math.div(470, 1280));
+  margin-top: 38px;
+
+  @include s.mq("sp") {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.staff_leftItem img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/*-------------------------------------------
+「RECRUIT」レイアウト
+-------------------------------------------*/
+.recruit_layout {
+  padding: 120px 0;
+  background: url(../image/recruit-bg.png) no-repeat center / cover;
+  position: relative;
+
+  @include s.mq("sp") {
+    padding: 81px 0;
+    background: transparent url(../image/recruit-bg-sp.png) no-repeat top center / cover;
+  }
+}
+
+.recruit_layout::after {
+  content: "";
+  background: url(../image/recruit-bubble.png) no-repeat center / cover;
+  width: 239px;
+  height: 388px;
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  z-index: 1;
+
+  @include s.mq("sp") {
+    background: transparent url(../image/recruit-bubble-sp.png) no-repeat center /
+    cover;
+    width: 76px;
+    height: 127px;
+    bottom: -7px;
+  }
+}
+
+.recruit_inner {
+  display: flex;
+  justify-content: flex-start;
+  gap: percentage(math.div(60, 1280));
+
+  @include s.mq("sp") {
+    flex-direction: column;
+  }
+}
+
+.recruit_img {
+  max-width: 640px;
+
+  @include s.mq("sp") {
+    width: 100%;
+    margin: 0 auto;
+}
+}
+
+.recruit_content {
+  width: percentage(math.div(410, 1280));
+  position: relative;
+
+  @include s.mq("sp") {
+    width: percentage(math.div(390, 420));
+    margin: 112px auto 0;
+  }
+}
+
+.recruit_content::after {
+  content: "";
+  background: url(../image/recruit-art.png) no-repeat center / cover;
+  width: 254px;
+  height: 149px;
+  position: absolute;
+  left: 0;
+  bottom: -100px;
+
+  @include s.mq("sp") {
+    width: 141px;
+    height: 82px;
+    left: inherit;
+    bottom: inherit;
+    top: -78px;
+    right: 0; 
+  }
+}
+
+.recruit_contentText {
+  margin: 35px 0 35px;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+
+  @include s.mq("sp") {
+    margin: 24px 0;
+  }
+}
+
+.recruit_btn {
+  width: 272px;
+
+  @include s.mq("sp") {
+    width: 290px;
+  }
+}
+
+// 「採用情報」までのアニメーション
+.js-fadeIn {
+  position: relative;
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 2s, transform 0.5s ease-in-out;
+}
+
+.js-fadeIn.is-scrollIn {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/*-------------------------------------------
+「お問い合わせ」レイアウト
+-------------------------------------------*/
+.contact_layout {
+  background: url(../image/contact-bg.png) no-repeat center / cover;
+  width: 100vw;
+  height: 356px;
+  margin-bottom: 184px;
+  position: relative;
+
+  @include s.mq("sp") {
+    height: 272px;
+    background: transparent url(../image/contact-bg-sp.png) no-repeat center /
+        cover;
+    margin-bottom: 208px;
+  }
+}
+.contact_inner {
+  display: flex;
+  width: percentage(math.div(994, 1280));
+  max-width: 995px;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  // border-radius: 10%; 要確認
+  box-shadow: 4px 4px 10px 0px hsla(207, 12%, 14%, 0.18);
+
+  @include s.mq("sp") {
+    flex-direction: column-reverse;
+    width: percentage(math.div(372, 420));
+    top: 48px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px 0px rgb(32, 37, 41, 0.18);
+  }
+}
+.contact_content {
+  width: percentage(math.div(474, 994));
+  background-color: s.$colorWhite;
+  padding: 93px 43px;
+
+  @include s.mq("sp") {
+    width: 100%;
+    padding: 24px 15px;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.contact_text {
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin-bottom: 48px;
+
+  @include s.mq("sp") {
+    margin-bottom: 20px;
+  }
+}
+.contact_img {
+  width: percentage(math.div(520, 994));
+
+  @include s.mq("sp") {
+    width: 100%;
+    height: 182px;
+
+    & > img {
+        height: 100%;
+    }
+  }
+}
+
+.contact_btn {
+  width: 273px;
+
+  @include s.mq("sp") {
+    width: 290px;
+  }
+}
+
+// 「お問い合わせ」のアニメーション
+.contact_inner.js-fadeIn {
+  transform: translate(-50% 150px);
+}
+.contact_inner.js-fadeIn.is-scrollIn {
+  transform: translate(-50%, 0);
+}
+
+
+/*-------------------------------------------
+「トップアイコン」レイアウト
+-------------------------------------------*/
+.topBtn_link {
+  position: fixed;
+  right: 15px;
+  bottom: 40px;
+  z-index: 100;
+}
+.topBtn_img {
+  width: 68px;
+  height: 68px;
+}

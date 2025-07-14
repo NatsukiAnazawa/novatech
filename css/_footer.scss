@@ -1,0 +1,84 @@
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+@use "setting" as s;
+/*除算用にmathモジュールをインポート*/
+@use "sass:math";
+
+.footer_layout {
+  width: 100vw;
+  background: url(../image/footer-bg.png) no-repeat top center / cover;
+  padding-bottom: 24px;
+
+  @include s.mq("sp") {
+    background: url(../image/footer-bg-sp.png) no-repeat top center / cover;
+  }
+}
+
+.footer_inner {
+  width: percentage(math.div(889, 1280));
+  max-width: 889px;
+  padding-top: 166px;
+  margin: 0 auto;
+  
+  @include s.mq("sp") {
+    width: percentage(math.div(378, 420));
+    padding: 73px 0 24px;
+  }
+}
+
+.footer_topContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 57px;
+
+  @include s.mq("sp") {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+}
+
+.footer_iconLogo {
+  width: 93px;
+  height: auto;
+
+  @include s.mq("sp") {
+    width: 106px;
+    height: 97px;
+  }
+}
+
+.footer_lits {
+  display: flex;
+  gap: 28px;
+
+  @include s.mq("sp") {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+  }
+}
+
+.footer_bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include s.mq("sp") {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+}
+
+.footer_items {
+  display: flex;
+  gap: 36px;
+
+  @include s.mq("sp") {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+}
