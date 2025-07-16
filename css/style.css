@@ -1377,6 +1377,10 @@ img {
   }
 }
 
+.contact__image img {
+  height: 100%;
+}
+
 .contact_btn {
   width: 273px;
 }
