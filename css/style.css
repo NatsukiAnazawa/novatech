@@ -1369,14 +1369,16 @@ img {
 .contact_img {
   width: 52.3138832998%;
 }
-.contact_img img {
-  height: 100%
-}
+
 @media screen and (max-width: 821px) {
   .contact_img {
     width: 100%;
     height: 182px;
   }
+}
+
+.contact_img img {
+  height: 100%
 }
 
 .contact_btn {
