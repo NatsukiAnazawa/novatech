@@ -1178,11 +1178,13 @@ img {
 .recruit_content {
   width: 32.03125%;
   position: relative;
+  padding-right: 16px
 }
 @media screen and (max-width: 821px) {
   .recruit_content {
     width: 92.8571428571%;
     margin: 112px auto 0;
+    padding-right: 0px
   }
 }
 
@@ -1274,6 +1276,7 @@ img {
   display: flex;
   width: 77.65625%;
   max-width: 995px;
+  max-height: 400px
   position: absolute;
   top: 90px;
   left: 50%;
