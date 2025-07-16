@@ -34,7 +34,7 @@ img {
 }
 .u-sectionTitle_en::before {
   content: "";
-  background-img: url(../image/title-image.png);
+  background-image: url(../image/title-image.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -871,6 +871,7 @@ img {
   .about_img {
     width: 100%;
     height: 254px;
+    top: 0;
     margin-bottom: 20px;
   }
 }
@@ -882,6 +883,7 @@ img {
 
 .about_content {
   width: 38.1481481481%;
+  height: auto;
   margin-left: -40px;
 }
 @media screen and (max-width: 821px) {
