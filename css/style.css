@@ -1290,7 +1290,6 @@ img {
 -------------------------------------------*/
 .contact_layout {
   background-image: url(../image/contact-bg.png) ;
-  background-image: url(../image/service-bg01.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1378,7 +1377,9 @@ img {
 }
 
 .contact_img img {
-  height: 100%
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .contact_btn {
@@ -1393,6 +1394,8 @@ img {
 .contact_inner.js-fadeIn {
   -webkit-transform: translate(-50%, 150px);
           transform: translate(-50%, 150px);
+  -webkit-transition: transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 
 .contact_inner.js-fadeIn.is-scrollIn {
