@@ -1168,8 +1168,7 @@ img {
   height: 388px;
   position: absolute;
   right: 0;
-  bottom: -50px;
-  z-index: 1;
+  bottom: -150px;
 }
 @media screen and (max-width: 821px) {
   .recruit_layout::after {
@@ -1236,6 +1235,7 @@ img {
   position: absolute;
   left: 0;
   bottom: -100px;
+  z-index: 1;
 }
 @media screen and (max-width: 821px) {
   .recruit_content::after {
@@ -1370,7 +1370,6 @@ img {
   width: 52.3138832998%;
 }
 .contact_img img {
-  width: 100%
   height: 100%
 }
 @media screen and (max-width: 821px) {
