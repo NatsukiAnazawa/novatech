@@ -14,7 +14,6 @@ body {
 
 img {
   max-width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -35,7 +34,10 @@ img {
 }
 .u-sectionTitle_en::before {
   content: "";
-  background: url(../image/title-image.png) no-repeat center/cover;
+  background-img: url(../image/title-image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 26px;
   height: 27px;
   position: absolute;
@@ -220,7 +222,11 @@ img {
   display: block;
   position: fixed;
   opacity: 1;
-  background: url(../image/overlay.png) no-repeat center top/cover transparent;
+  background-image: url(../image/overlay.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-color: transparent;
   width: 100%;
   height: 100vh;
   top: 72px;
@@ -432,7 +438,10 @@ img {
   right: -35px;
   width: 26px;
   height: 27px;
-  background: url(../image/title-image.png) no-repeat center/cover;
+  background-image: url(../image/title-image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /*-------------------------------------------
@@ -622,7 +631,10 @@ img {
   left: 0;
   width: 100%;
   height: 110px;
-  background: url(../image/service-bg01.png) no-repeat top center/cover;
+  background-image: url(../image/service-bg01.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
 }
 @media screen and (max-width: 821px) {
   .service_layout::before {
@@ -637,7 +649,10 @@ img {
   left: 0;
   width: 100%;
   height: 110px;
-  background: url(../image/service-bg02.png) no-repeat top center/cover;
+  background-image: url(../image/service-bg02.png) 
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
 }
 @media screen and (max-width: 821px) {
   .service_layout::after {
@@ -962,19 +977,28 @@ img {
 -------------------------------------------*/
 .staff_layout {
   padding: 121px 0 121px;
-  background: url(../image/staff-bg.png) no-repeat top center/cover;
+  background-image: url(../image/staff-bg.png) ;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
   position: relative;
 }
 @media screen and (max-width: 821px) {
   .staff_layout {
     padding: 80px 15px;
-    background: transparent url(../image/staff-bg-sp.png) no-repeat top center/cover;
+    background-image: url(../image/staff-bg-sp.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
   }
 }
 
 .staff_layout::after {
   content: "";
-  background: url(../image/staff-bubble.png) no-repeat center/cover;
+  background-image: url(../image/staff-bubble.png) ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 216px;
   height: 432px;
   position: absolute;
@@ -986,7 +1010,11 @@ img {
   .staff_layout::after {
     width: 100px;
     height: 142px;
-    background: transparent url(../image/staff-bubble-sp.png) no-repeat center/cover;
+    background-image: url(../image/service-bg01.png);
+    background-repeat: no-repeat; 
+    background-position: top center;
+    background-size: cover;
+    background-color: transparent;
     top: inherit;
     left: inherit;
     bottom: -5px;
@@ -1025,7 +1053,10 @@ img {
 }
 .staff_rightItem::after {
   content: "";
-  background: url(../image/staff-art.png) no-repeat center/cover;
+  background-image: url(../image/staff-art.png) ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 347px;
   height: 155px;
   position: absolute;
@@ -1073,19 +1104,29 @@ img {
 -------------------------------------------*/
 .recruit_layout {
   padding: 120px 0;
-  background: url(../image/recruit-bg.png) no-repeat center/cover;
+  background-image: url(../image/recruit-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: relative;
 }
 @media screen and (max-width: 821px) {
   .recruit_layout {
     padding: 81px 0;
-    background: transparent url(../image/recruit-bg-sp.png) no-repeat top center/cover;
+    background-image: url(../image/recruit-bg-sp.png) ;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-color: transparent;
   }
 }
 
 .recruit_layout::after {
   content: "";
-  background: url(../image/recruit-bubble.png) no-repeat center/cover;
+  background-image: url(../image/recruit-bubble.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 239px;
   height: 388px;
   position: absolute;
@@ -1095,7 +1136,11 @@ img {
 }
 @media screen and (max-width: 821px) {
   .recruit_layout::after {
-    background: transparent url(../image/recruit-bubble-sp.png) no-repeat center/cover;
+    background-image: url(../image/recruit-bubble-sp.png) ;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-color: transparent;
     width: 76px;
     height: 127px;
     bottom: -7px;
@@ -1143,7 +1188,10 @@ img {
 
 .recruit_content::after {
   content: "";
-  background: url(../image/recruit-art.png) no-repeat center/cover;
+  background-image: url(../image/recruit-art.png) ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 254px;
   height: 149px;
   position: absolute;
@@ -1202,7 +1250,11 @@ img {
 「お問い合わせ」レイアウト
 -------------------------------------------*/
 .contact_layout {
-  background: url(../image/contact-bg.png) no-repeat center/cover;
+  background-image: url(../image/contact-bg.png) ;
+  background-image: url(../image/service-bg01.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100vw;
   height: 356px;
   margin-bottom: 184px;
@@ -1292,8 +1344,8 @@ img {
 }
 
 .contact_inner.js-fadeIn {
-  -webkit-transform: translate(-50% 150px);
-          transform: translate(-50% 150px);
+  -webkit-transform: translate(-50%, 150px);
+          transform: translate(-50%, 150px);
 }
 
 .contact_inner.js-fadeIn.is-scrollIn {
@@ -1322,12 +1374,18 @@ footer
 /*除算用にmathモジュールをインポート*/
 .footer_layout {
   width: 100vw;
-  background: url(../image/footer-bg.png) no-repeat top center/cover;
+  background-image: url(../image/footer-bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
   padding-bottom: 24px;
 }
 @media screen and (max-width: 821px) {
   .footer_layout {
-    background: url(../image/footer-bg-sp.png) no-repeat top center/cover;
+    background-image: url(../image/footer-bg-sp.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
   }
 }
 
